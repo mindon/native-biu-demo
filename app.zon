@@ -1,0 +1,45 @@
+.{
+    .id = "dev.native_sdk.0xmoz",
+    .name = "0xmoz",
+    .display_name = "∅M〇ᶻ",
+    .description = "A native + web demo app",
+    .version = "0.1.0",
+    .icons = .{"assets/icon.png"},
+    .platforms = .{"macos"},
+    .permissions = .{ "view", "command", "window" },
+    .capabilities = .{ "webview", "native_views", "gpu_surfaces" },
+    .shell = .{
+        .windows = .{
+            .{
+                .label = "0xmoz",
+                .title = "∅M〇ᶻ",
+                .width = 480,
+                .height = 320,
+                .restore_state = false,
+                .restore_policy = "center_on_primary",
+                .views = .{
+                    .{ .label = "main-canvas", .kind = "gpu_surface", .fill = true, .role = "∅M〇ᶻ canvas", .accessibility_label = "∅M〇ᶻ", .gpu_backend = "metal", .gpu_pixel_format = "bgra8_unorm", .gpu_present_mode = "timer", .gpu_alpha_mode = "opaque", .gpu_color_space = "srgb", .gpu_vsync = true },
+                },
+            },
+        },
+    },
+    .security = .{
+        .navigation = .{
+            .allowed_origins = .{ "zero://app", "zero://inline", "http://127.0.0.1:5118/", "https://example.com" },
+            .external_links = .{ .action = "deny" },
+        },
+    },
+    .frontend = .{
+        .dist = "frontend/dist",
+        .entry = "index.html",
+        .spa_fallback = true,
+        .dev = .{
+            .url = "http://127.0.0.1:5118/",
+            .command = .{ "biu", "frontend/src", "frontend/dist", "--serve", "5118" },
+            .ready_path = "/",
+            .timeout_ms = 30000,
+        },
+    },
+    .web_engine = "system",
+    .cef = .{ .dir = "third_party/cef/macos", .auto_install = false },
+}
