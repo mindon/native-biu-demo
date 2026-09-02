@@ -5,7 +5,7 @@ A native-rendered + web Native SDK app: the view lives in `src/app.native`
 `update`). No WebView, no npm, no build files — the `native` CLI owns
 the build.
 
-native-sdk using <https://github.com/mindon/native-sdk>
+native-sdk using <https://github.com/mindon/native>
 
 web part using <https://mindon.dev/biu/>.
 
